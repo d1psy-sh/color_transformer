@@ -91,6 +91,7 @@ fn parse_args() -> Infos {
     infos
 }
 
+/// This is the struct for serde to deserialize the scheme json
 #[derive(Default, Debug, Clone, PartialEq, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct WinTermScheme {
@@ -115,6 +116,30 @@ pub struct WinTermScheme {
     pub foreground: String,
     pub selection_background: String,
     pub cursor_color: String,
+}
+
+/// This is the struct which decupples the scheme from the input file type
+/// so this represents a scheme in general
+struct Scheme {
+    // TODO: add the fields
+}
+
+// TODO: implement those
+impl Scheme {
+    fn new() -> Self {
+        Self {}
+    }
+    /// this function parses the scheme at hand to a nvim scheme using colorbuddy.nvim
+    // TODO: implement this (replaces the parse function or the parse func can invoke this one)
+    fn to_nvim() -> String {
+        todo!()
+    }
+}
+
+impl Default for Scheme {
+    fn default() -> Self {
+        Self::new()
+    }
 }
 
 fn parse(input: String) -> String {
